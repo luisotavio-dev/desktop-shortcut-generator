@@ -1,166 +1,214 @@
 # Desktop Shortcut Generator
 
-A **Python** and **PyQt6** desktop app for creating `.desktop` shortcuts on Linux through a simple graphical interface with multi-language support.
+[![Built with AI](https://img.shields.io/badge/Built%20with-AI-8B5CF6?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/luisotavio-dev/desktop-shortcut-generator)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![PyQt6](https://img.shields.io/badge/PyQt6-6.4+-41CD52?style=flat-square&logo=qt&logoColor=white)](https://www.riverbankcomputing.com/software/pyqt/)
+[![Platform](https://img.shields.io/badge/Platform-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)](https://www.kernel.org/)
+[![FreeDesktop](https://img.shields.io/badge/Standard-FreeDesktop.org-0069DA?style=flat-square)](https://specifications.freedesktop.org/)
+[![License](https://img.shields.io/badge/License-TBD-lightgrey?style=flat-square)](LICENSE)
 
-Works on environments that follow the [FreeDesktop.org](https://specifications.freedesktop.org/) standard — **KDE Plasma**, **GNOME**, **XFCE**, **Cinnamon**, **MATE**, and derivatives (Fedora, Ubuntu, Bazzite, Arch, Linux Mint, etc.).
+A **Python** + **PyQt6** desktop application for creating `.desktop` shortcuts on Linux through a simple graphical interface with multi-language support.
+
+Compatible with **KDE Plasma**, **GNOME**, **XFCE**, **Cinnamon**, **MATE**, and other FreeDesktop-compliant environments (Fedora, Ubuntu, Bazzite, Arch, Linux Mint, and more).
+
+> [!WARNING]
+> **This project is no longer actively maintained.**
+>
+> After evaluating similar tools, [Launcher Studio](https://github.com/MrArnaudMichel/launcher_studio) already covers this use case more completely (create/edit `.desktop` files, validation, icon picker, Flathub packaging, and more). Development effort has moved to **contributing there** instead of continuing this repository.
+>
+> This codebase remains available for reference and learning. For a maintained alternative, use [Launcher Studio on Flathub](https://flathub.org/apps/fr.arnaudmichel.launcherstudio) or its [GitHub repository](https://github.com/MrArnaudMichel/launcher_studio).
+
+---
+
+## AI disclosure
+
+> **This project was built with the assistance of AI (Large Language Models).**
+>
+> The initial architecture, codebase, documentation, and several iterations of features were generated and refined through AI-assisted development (e.g. Cursor / Claude). Human review and manual testing were applied along the way, but **contributors should treat the codebase accordingly**:
+>
+> - Review logic, security, and edge cases carefully before merging changes
+> - Prefer tests for non-trivial behavior when adding features
+> - Report or fix anything that looks auto-generated but incorrect
+> - Improvements, refactors, and human-written replacements are encouraged
+
+If you contribute, you do **not** need to use AI — but please be aware of the project's origins.
+
+---
+
+## Table of contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Quick start](#quick-start)
+- [Usage](#usage)
+- [Project structure](#project-structure)
+- [Contributing](#contributing)
+- [Adding a new language](#adding-a-new-language)
+- [License](#license)
+
+---
 
 ## Features
 
-- Graphical interface for creating `.desktop` shortcuts
-- Fields: name, executable, icon (with live preview), description, and *Run in Terminal*
-- Path validation before saving
-- Automatic desktop folder detection via **XDG** (`user-dirs.dirs`)
-- Fallback to `~/.local/share/applications` when no desktop folder is available
-- Trusted launcher support on **GNOME** (`metadata::trusted`)
-- Internationalization: **Portuguese (Brazil)**, **English**, and **Spanish**
-- System language detection with English fallback
+| Feature | Description |
+|---------|-------------|
+| **GUI shortcut builder** | Create `.desktop` files without editing them by hand |
+| **Form fields** | App name, executable, icon (with preview), description, *Run in Terminal* |
+| **Validation** | Checks that executable and icon paths exist before saving |
+| **XDG desktop detection** | Reads `~/.config/user-dirs.dirs` for the correct Desktop folder |
+| **Smart fallback** | Saves to `~/.local/share/applications` when no Desktop exists |
+| **GNOME trust** | Marks desktop shortcuts as trusted via `gio` when applicable |
+| **i18n** | Portuguese (Brazil), English, and Spanish |
+| **Locale detection** | Uses the system language with English fallback |
+
+---
 
 ## Requirements
 
-| Requirement | Minimum version |
-|-------------|-----------------|
+| Requirement | Minimum |
+|-------------|---------|
 | Python | 3.11+ |
 | PyQt6 | 6.4+ |
-| gettext (`msgfmt`) | only needed to compile translations |
+| gettext (`msgfmt`) | Only for compiling translations |
 
-### Install system dependencies
+<details>
+<summary><strong>Install system packages by distribution</strong></summary>
 
-**Fedora / Bazzite / RHEL:**
+**Fedora / Bazzite / RHEL**
 
 ```bash
 sudo dnf install python3 python3-pip gettext
 ```
 
-**Ubuntu / Debian / Mint:**
+**Ubuntu / Debian / Mint**
 
 ```bash
 sudo apt install python3 python3-pip python3-venv gettext
 ```
 
-**Arch Linux:**
+**Arch Linux**
 
 ```bash
 sudo pacman -S python python-pip gettext
 ```
 
-## How to run
+</details>
 
-### 1. Clone the repository
+---
+
+## Quick start
 
 ```bash
-git clone https://github.com/YOUR_USER/desktop-shortcut-generator.git
+# 1. Clone
+git clone https://github.com/luisotavio-dev/desktop-shortcut-generator.git
 cd desktop-shortcut-generator
-```
 
-Replace `YOUR_USER` with the actual GitHub user or organization once the repository is published.
-
-### 2. Create a virtual environment (recommended)
-
-```bash
+# 2. Virtual environment (recommended)
 python3 -m venv .venv
 source .venv/bin/activate
-```
 
-### 3. Install Python dependencies
-
-```bash
+# 3. Dependencies
 pip install -r requirements.txt
-```
 
-### 4. Compile translations
-
-```bash
+# 4. Compile translations
 python scripts/compile_translations.py
-```
 
-### 5. Run the application
-
-```bash
+# 5. Run
 python -m desktop_shortcut_generator.main
 ```
 
-Fill in the form, select the executable and icon image, then click **Create Shortcut**. The `.desktop` file will be saved to your desktop (if available) or to the applications menu directory.
+---
+
+## Usage
+
+1. Launch the application.
+2. Fill in the **application name**, **executable path**, **shortcut icon path**, and optional **description**.
+3. Enable **Run in Terminal** if the program must run inside a terminal.
+4. Click **Create Shortcut**.
+
+The `.desktop` file is saved to:
+
+1. Your XDG desktop folder (e.g. `~/Desktop`, `~/Área de Trabalho`)
+2. Or `~/.local/share/applications` if no desktop folder is found
+
+---
 
 ## Project structure
 
 ```text
 desktop_shortcut_generator/
-├── config/           # Global settings (name, version, languages)
-├── domain/           # Pure business entities and rules
-├── use_cases/        # Use cases (orchestration)
-├── infrastructure/   # I/O: file writing, XDG paths, GNOME trust
-├── presentation/     # PyQt6 user interface
-├── i18n/             # gettext translations (.po / .mo)
-└── main.py           # Entry point
+├── config/           # App name, version, supported languages
+├── domain/           # Entities, validation rules (no PyQt6)
+├── use_cases/        # Application workflows
+├── infrastructure/   # File I/O, XDG paths, GNOME trust
+├── presentation/     # PyQt6 UI
+├── i18n/             # gettext .po / .mo files
+└── main.py           # Entry point & dependency injection
 
 scripts/
 └── compile_translations.py
 ```
 
-The project follows **Clean Architecture**: business logic does not depend on PyQt6.
+The codebase follows **Clean Architecture** — business rules are decoupled from the UI layer.
 
-## How to contribute
+---
 
-Contributions are welcome — bug fixes, improvements, translations, and documentation.
+## Contributing
 
-### 1. Fork and branch
+Contributions are welcome. Feel free to open issues, suggest improvements, or submit pull requests.
 
-```bash
-git clone https://github.com/YOUR_USER/desktop-shortcut-generator.git
-cd desktop-shortcut-generator
-git checkout -b my-feature
-```
+### Workflow
 
-### 2. Set up the development environment
+1. **Fork** the repository on GitHub
+2. **Clone** your fork and create a branch:
+   ```bash
+   git clone https://github.com/<your-user>/desktop-shortcut-generator.git
+   cd desktop-shortcut-generator
+   git checkout -b my-feature
+   ```
+3. **Set up** the dev environment ([Quick start](#quick-start))
+4. **Make changes** following the guidelines below
+5. **Test** locally:
+   ```bash
+   python -m desktop_shortcut_generator.main
+   ```
+6. **Commit** with a clear message and open a **Pull Request**
 
-Follow the steps in [How to run](#how-to-run).
+### Guidelines
 
-### 3. Make your changes
-
-- Follow **PEP 8** and use **type hints** in new code
-- Keep layer separation (`domain` must not import PyQt6)
+- Follow **PEP 8** and use **type hints**
+- Keep layers separated — `domain` must not import PyQt6
 - Add docstrings to public classes and functions
-- If you change UI strings, update **all** `.po` files under `i18n/locales/`
+- Update **all** `.po` files when changing UI strings
+- Run `python scripts/compile_translations.py` after editing translations
+- Mention in your PR if you used AI assistance for that change
 
-### 4. Compile translations (if needed)
+### Ideas for contributors
 
-```bash
-python scripts/compile_translations.py
-```
+- [ ] New language translations
+- [ ] Automated tests
+- [ ] Flatpak / Flathub packaging
+- [ ] UI accessibility improvements
+- [ ] Desktop environment compatibility fixes
+- [ ] Replace or harden AI-generated sections where needed
 
-### 5. Test locally
-
-```bash
-python -m desktop_shortcut_generator.main
-```
-
-Verify that shortcuts are created correctly and the interface is properly translated.
-
-### 6. Commit and open a Pull Request
-
-```bash
-git add .
-git commit -m "feat: clear description of the change"
-git push origin my-feature
-```
-
-Open a **Pull Request** on GitHub describing what you changed and how to test it.
-
-### Contribution ideas
-
-- New languages in `i18n/locales/`
-- UI accessibility improvements
-- Flatpak / Flathub packaging
-- Automated tests
-- Desktop environment compatibility fixes
+---
 
 ## Adding a new language
 
 1. Copy `desktop_shortcut_generator/i18n/locales/en/LC_MESSAGES/messages.po` to `locales/<code>/LC_MESSAGES/messages.po`
-2. Translate all `msgstr` entries and set the `Language:` header
-3. Register the language in `config/settings.py` → `SUPPORTED_LANGUAGES`
-4. Run `python scripts/compile_translations.py`
+2. Translate every `msgstr` and update the `Language:` header
+3. Register the locale in `config/settings.py` → `SUPPORTED_LANGUAGES`
+4. Compile: `python scripts/compile_translations.py`
+
+---
 
 ## License
 
-License not yet defined. Check the repository for updates.
+License not yet defined. See the repository for updates.
+
+---
+
+<p align="center">
+  <sub>Built with AI-assisted development · Maintainers and contributors welcome</sub>
+</p>
