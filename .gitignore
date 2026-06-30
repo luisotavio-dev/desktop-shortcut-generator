@@ -1,0 +1,54 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+*.whl
+
+# Test / coverage / type checking
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# gettext build artifacts (generated from .po via scripts/compile_translations.py)
+**/LC_MESSAGES/*.mo
+
+# IDE / editors (keep shared project skills under .cursor/skills/)
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and local env files
+*.log
+.env.local
+.env.*.local
+
+# Flatpak / packaging drafts (when added later)
+.flatpak-builder/
+flatpak-build/

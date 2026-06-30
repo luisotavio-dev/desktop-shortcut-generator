@@ -1,0 +1,25 @@
+# Normalize line endings across platforms
+* text=auto eol=lf
+
+# Python
+*.py text diff=python
+
+# Shell scripts
+*.sh text eol=lf
+
+# Translations
+*.po text diff=po
+*.pot text diff=po
+
+# Compiled gettext catalogs are binary build artifacts
+*.mo binary linguist-generated
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg text
+
+# Archives
+*.zip binary
+*.tar.gz binary

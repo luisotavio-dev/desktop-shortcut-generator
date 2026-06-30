@@ -1,0 +1,108 @@
+# Portuguese (Brazil) translations for Desktop Shortcut Generator.
+# Copyright (C) 2026 Desktop Shortcut Generator
+# This file is distributed under the same license as the project.
+msgid ""
+msgstr ""
+"Project-Id-Version: Desktop Shortcut Generator 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-30 12:00+0000\n"
+"PO-Revision-Date: 2026-06-30 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Application Name"
+msgstr "Nome do Aplicativo"
+
+msgid "Executable Path"
+msgstr "Caminho do Executável"
+
+msgid "Shortcut Icon Path"
+msgstr "Caminho do Ícone do Atalho"
+
+msgid "Select Shortcut Icon"
+msgstr "Selecionar Ícone do Atalho"
+
+msgid "No preview"
+msgstr "Sem pré-visualização"
+
+msgid "Image file used as the shortcut icon. Supported formats: {formats}."
+msgstr "Arquivo de imagem usado como ícone do atalho. Formatos suportados: {formats}."
+
+msgid "Create a .desktop shortcut for your application."
+msgstr "Crie um atalho .desktop para o seu aplicativo."
+
+msgid "Shortcut Details"
+msgstr "Detalhes do Atalho"
+
+msgid "Options"
+msgstr "Opções"
+
+msgid "e.g. My Application"
+msgstr "ex.: Meu Aplicativo"
+
+msgid "Optional description shown in menus"
+msgstr "Descrição opcional exibida nos menus"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Run in Terminal"
+msgstr "Executar no Terminal"
+
+msgid "Browse..."
+msgstr "Procurar..."
+
+msgid "Create Shortcut"
+msgstr "Criar Atalho"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Select Executable"
+msgstr "Selecionar Executável"
+
+msgid "Success"
+msgstr "Sucesso"
+
+msgid "Shortcut created successfully at:\n{path}"
+msgstr "Atalho criado com sucesso em:\n{path}"
+
+msgid "Error"
+msgstr "Erro"
+
+msgid "Validation Error"
+msgstr "Erro de Validação"
+
+msgid "File Error"
+msgstr "Erro de Arquivo"
+
+msgid "Application name is required"
+msgstr "O nome do aplicativo é obrigatório"
+
+msgid "Executable path does not exist"
+msgstr "O caminho do executável não existe"
+
+msgid "Executable path must be a file"
+msgstr "O caminho do executável deve ser um arquivo"
+
+msgid "Icon path does not exist"
+msgstr "O caminho do ícone não existe"
+
+msgid "Icon path must be a file"
+msgstr "O caminho do ícone deve ser um arquivo"
+
+msgid "All Files"
+msgstr "Todos os Arquivos"
+
+msgid "Executables"
+msgstr "Executáveis"
+
+msgid "Images"
+msgstr "Imagens"
+
+msgid "Version {version}"
+msgstr "Versão {version}"

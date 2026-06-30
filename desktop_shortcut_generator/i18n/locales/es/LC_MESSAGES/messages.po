@@ -1,0 +1,108 @@
+# Spanish translations for Desktop Shortcut Generator.
+# Copyright (C) 2026 Desktop Shortcut Generator
+# This file is distributed under the same license as the project.
+msgid ""
+msgstr ""
+"Project-Id-Version: Desktop Shortcut Generator 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-30 12:00+0000\n"
+"PO-Revision-Date: 2026-06-30 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Application Name"
+msgstr "Nombre de la Aplicación"
+
+msgid "Executable Path"
+msgstr "Ruta del Ejecutable"
+
+msgid "Shortcut Icon Path"
+msgstr "Ruta del Icono del Acceso Directo"
+
+msgid "Select Shortcut Icon"
+msgstr "Seleccionar Icono del Acceso Directo"
+
+msgid "No preview"
+msgstr "Sin vista previa"
+
+msgid "Image file used as the shortcut icon. Supported formats: {formats}."
+msgstr "Archivo de imagen usado como icono del acceso directo. Formatos compatibles: {formats}."
+
+msgid "Create a .desktop shortcut for your application."
+msgstr "Cree un acceso directo .desktop para su aplicación."
+
+msgid "Shortcut Details"
+msgstr "Detalles del Acceso Directo"
+
+msgid "Options"
+msgstr "Opciones"
+
+msgid "e.g. My Application"
+msgstr "ej.: Mi Aplicación"
+
+msgid "Optional description shown in menus"
+msgstr "Descripción opcional mostrada en los menús"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Run in Terminal"
+msgstr "Ejecutar en Terminal"
+
+msgid "Browse..."
+msgstr "Examinar..."
+
+msgid "Create Shortcut"
+msgstr "Crear Acceso Directo"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Select Executable"
+msgstr "Seleccionar Ejecutable"
+
+msgid "Success"
+msgstr "Éxito"
+
+msgid "Shortcut created successfully at:\n{path}"
+msgstr "Acceso directo creado con éxito en:\n{path}"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Validation Error"
+msgstr "Error de Validación"
+
+msgid "File Error"
+msgstr "Error de Archivo"
+
+msgid "Application name is required"
+msgstr "El nombre de la aplicación es obligatorio"
+
+msgid "Executable path does not exist"
+msgstr "La ruta del ejecutable no existe"
+
+msgid "Executable path must be a file"
+msgstr "La ruta del ejecutable debe ser un archivo"
+
+msgid "Icon path does not exist"
+msgstr "La ruta del icono no existe"
+
+msgid "Icon path must be a file"
+msgstr "La ruta del icono debe ser un archivo"
+
+msgid "All Files"
+msgstr "Todos los Archivos"
+
+msgid "Executables"
+msgstr "Ejecutables"
+
+msgid "Images"
+msgstr "Imágenes"
+
+msgid "Version {version}"
+msgstr "Versión {version}"
