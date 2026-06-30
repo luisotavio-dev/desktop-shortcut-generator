@@ -5,7 +5,7 @@
 [![PyQt6](https://img.shields.io/badge/PyQt6-6.4+-41CD52?style=flat-square&logo=qt&logoColor=white)](https://www.riverbankcomputing.com/software/pyqt/)
 [![Platform](https://img.shields.io/badge/Platform-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)](https://www.kernel.org/)
 [![FreeDesktop](https://img.shields.io/badge/Standard-FreeDesktop.org-0069DA?style=flat-square)](https://specifications.freedesktop.org/)
-[![License](https://img.shields.io/badge/License-TBD-lightgrey?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
 A **Python** + **PyQt6** desktop application for creating `.desktop` shortcuts on Linux through a simple graphical interface with multi-language support.
 
@@ -205,7 +205,7 @@ Contributions are welcome. Feel free to open issues, suggest improvements, or su
 
 ## License
 
-License not yet defined. See the repository for updates.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
