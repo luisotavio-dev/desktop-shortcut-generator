@@ -17,6 +17,7 @@ dist/
 *.egg
 pip-wheel-metadata/
 *.whl
+desktop-shortcut-generator-*-linux-x86_64.tar.gz
 
 # Test / coverage / type checking
 .pytest_cache/

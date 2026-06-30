@@ -229,6 +229,24 @@ git push origin main
 
 GitHub Actions will create the tag and publish the release on GitHub.
 
+The release includes a **Linux x86_64 binary** archive:
+
+`desktop-shortcut-generator-<version>-linux-x86_64.tar.gz`
+
+### Install from a GitHub release
+
+```bash
+tar -xzf desktop-shortcut-generator-1.0.0-linux-x86_64.tar.gz
+./desktop-shortcut-generator/desktop-shortcut-generator
+```
+
+### Build the Linux release locally
+
+```bash
+chmod +x scripts/build_linux_release.sh
+./scripts/build_linux_release.sh
+```
+
 ### Manual release trigger
 
 You can also run the workflow manually from the GitHub **Actions** tab (`workflow_dispatch`).
