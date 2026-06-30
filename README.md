@@ -1,29 +1,29 @@
 # Desktop Shortcut Generator
 
-Aplicativo desktop em **Python** e **PyQt6** para criar atalhos `.desktop` no Linux de forma simples, com interface gráfica e suporte a múltiplos idiomas.
+A **Python** and **PyQt6** desktop app for creating `.desktop` shortcuts on Linux through a simple graphical interface with multi-language support.
 
-Funciona em ambientes que seguem o padrão [FreeDesktop.org](https://specifications.freedesktop.org/) — **KDE Plasma**, **GNOME**, **XFCE**, **Cinnamon**, **MATE** e derivados (Fedora, Ubuntu, Bazzite, Arch, Linux Mint, etc.).
+Works on environments that follow the [FreeDesktop.org](https://specifications.freedesktop.org/) standard — **KDE Plasma**, **GNOME**, **XFCE**, **Cinnamon**, **MATE**, and derivatives (Fedora, Ubuntu, Bazzite, Arch, Linux Mint, etc.).
 
-## Funcionalidades
+## Features
 
-- Interface gráfica para criar atalhos `.desktop`
-- Campos: nome, executável, ícone (com pré-visualização), descrição e opção *Executar no Terminal*
-- Validação de caminhos antes de salvar
-- Detecção automática da pasta da área de trabalho via **XDG** (`user-dirs.dirs`)
-- Fallback para `~/.local/share/applications` quando não há desktop configurado
-- Suporte a atalhos confiáveis no **GNOME** (`metadata::trusted`)
-- Internacionalização: **Português (Brasil)**, **Inglês** e **Espanhol**
-- Detecção do idioma do sistema com fallback para inglês
+- Graphical interface for creating `.desktop` shortcuts
+- Fields: name, executable, icon (with live preview), description, and *Run in Terminal*
+- Path validation before saving
+- Automatic desktop folder detection via **XDG** (`user-dirs.dirs`)
+- Fallback to `~/.local/share/applications` when no desktop folder is available
+- Trusted launcher support on **GNOME** (`metadata::trusted`)
+- Internationalization: **Portuguese (Brazil)**, **English**, and **Spanish**
+- System language detection with English fallback
 
-## Requisitos
+## Requirements
 
-| Requisito | Versão mínima |
-|-----------|---------------|
+| Requirement | Minimum version |
+|-------------|-----------------|
 | Python | 3.11+ |
 | PyQt6 | 6.4+ |
-| gettext (`msgfmt`) | apenas para compilar traduções |
+| gettext (`msgfmt`) | only needed to compile translations |
 
-### Instalar dependências do sistema
+### Install system dependencies
 
 **Fedora / Bazzite / RHEL:**
 
@@ -43,124 +43,124 @@ sudo apt install python3 python3-pip python3-venv gettext
 sudo pacman -S python python-pip gettext
 ```
 
-## Como executar
+## How to run
 
-### 1. Clonar o repositório
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/SEU_USUARIO/desktop-shortcut-generator.git
+git clone https://github.com/YOUR_USER/desktop-shortcut-generator.git
 cd desktop-shortcut-generator
 ```
 
-Substitua `SEU_USUARIO` pela organização ou usuário real do GitHub quando o repositório estiver publicado.
+Replace `YOUR_USER` with the actual GitHub user or organization once the repository is published.
 
-### 2. Criar ambiente virtual (recomendado)
+### 2. Create a virtual environment (recommended)
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 3. Instalar dependências Python
+### 3. Install Python dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Compilar traduções
+### 4. Compile translations
 
 ```bash
 python scripts/compile_translations.py
 ```
 
-### 5. Executar o aplicativo
+### 5. Run the application
 
 ```bash
 python -m desktop_shortcut_generator.main
 ```
 
-Preencha o formulário, selecione o executável e a imagem do ícone, e clique em **Criar Atalho**. O arquivo `.desktop` será salvo na sua área de trabalho (se existir) ou no menu de aplicativos.
+Fill in the form, select the executable and icon image, then click **Create Shortcut**. The `.desktop` file will be saved to your desktop (if available) or to the applications menu directory.
 
-## Estrutura do projeto
+## Project structure
 
 ```text
 desktop_shortcut_generator/
-├── config/           # Configurações globais (nome, versão, idiomas)
-├── domain/           # Entidades e regras de negócio puras
-├── use_cases/        # Casos de uso (orquestração)
-├── infrastructure/   # I/O: escrita de arquivos, XDG, trust GNOME
-├── presentation/     # Interface PyQt6
-├── i18n/             # Traduções gettext (.po / .mo)
-└── main.py           # Ponto de entrada
+├── config/           # Global settings (name, version, languages)
+├── domain/           # Pure business entities and rules
+├── use_cases/        # Use cases (orchestration)
+├── infrastructure/   # I/O: file writing, XDG paths, GNOME trust
+├── presentation/     # PyQt6 user interface
+├── i18n/             # gettext translations (.po / .mo)
+└── main.py           # Entry point
 
 scripts/
 └── compile_translations.py
 ```
 
-O projeto segue **Clean Architecture**: a lógica de negócio não depende de PyQt6.
+The project follows **Clean Architecture**: business logic does not depend on PyQt6.
 
-## Como contribuir
+## How to contribute
 
-Contribuições são bem-vindas — correções, melhorias, traduções e documentação.
+Contributions are welcome — bug fixes, improvements, translations, and documentation.
 
-### 1. Fork e branch
+### 1. Fork and branch
 
 ```bash
-git clone https://github.com/SEU_USUARIO/desktop-shortcut-generator.git
+git clone https://github.com/YOUR_USER/desktop-shortcut-generator.git
 cd desktop-shortcut-generator
-git checkout -b minha-feature
+git checkout -b my-feature
 ```
 
-### 2. Configurar o ambiente de desenvolvimento
+### 2. Set up the development environment
 
-Siga os passos da seção [Como executar](#como-executar).
+Follow the steps in [How to run](#how-to-run).
 
-### 3. Fazer suas alterações
+### 3. Make your changes
 
-- Siga **PEP 8** e use **type hints** em código novo
-- Mantenha a separação de camadas (`domain` não importa PyQt6)
-- Adicione docstrings em classes e funções públicas
-- Se alterar textos da interface, atualize **todos** os arquivos `.po` em `i18n/locales/`
+- Follow **PEP 8** and use **type hints** in new code
+- Keep layer separation (`domain` must not import PyQt6)
+- Add docstrings to public classes and functions
+- If you change UI strings, update **all** `.po` files under `i18n/locales/`
 
-### 4. Compilar traduções (se necessário)
+### 4. Compile translations (if needed)
 
 ```bash
 python scripts/compile_translations.py
 ```
 
-### 5. Testar localmente
+### 5. Test locally
 
 ```bash
 python -m desktop_shortcut_generator.main
 ```
 
-Verifique se o atalho é criado corretamente e se a interface está traduzida.
+Verify that shortcuts are created correctly and the interface is properly translated.
 
-### 6. Commit e Pull Request
+### 6. Commit and open a Pull Request
 
 ```bash
 git add .
-git commit -m "feat: descrição clara da mudança"
-git push origin minha-feature
+git commit -m "feat: clear description of the change"
+git push origin my-feature
 ```
 
-Abra um **Pull Request** no GitHub descrevendo o que foi feito e como testar.
+Open a **Pull Request** on GitHub describing what you changed and how to test it.
 
-### Ideias de contribuição
+### Contribution ideas
 
-- Novos idiomas em `i18n/locales/`
-- Melhorias de acessibilidade na interface
-- Empacotamento Flatpak / Flathub
-- Testes automatizados
-- Correções de compatibilidade com ambientes desktop específicos
+- New languages in `i18n/locales/`
+- UI accessibility improvements
+- Flatpak / Flathub packaging
+- Automated tests
+- Desktop environment compatibility fixes
 
-## Adicionar um novo idioma
+## Adding a new language
 
-1. Copie `desktop_shortcut_generator/i18n/locales/en/LC_MESSAGES/messages.po` para `locales/<código>/LC_MESSAGES/messages.po`
-2. Traduza os `msgstr` e ajuste o cabeçalho `Language:`
-3. Registre o idioma em `config/settings.py` → `SUPPORTED_LANGUAGES`
-4. Execute `python scripts/compile_translations.py`
+1. Copy `desktop_shortcut_generator/i18n/locales/en/LC_MESSAGES/messages.po` to `locales/<code>/LC_MESSAGES/messages.po`
+2. Translate all `msgstr` entries and set the `Language:` header
+3. Register the language in `config/settings.py` → `SUPPORTED_LANGUAGES`
+4. Run `python scripts/compile_translations.py`
 
-## Licença
+## License
 
-Licença ainda não definida. Consulte o repositório para atualizações.
+License not yet defined. Check the repository for updates.
