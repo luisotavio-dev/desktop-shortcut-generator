@@ -1,5 +1,9 @@
 # Desktop Shortcut Generator
 
+<p align="center">
+  <img src="desktop_shortcut_generator/assets/app-icon-readme.png" alt="Desktop Shortcut Generator logo" width="128" height="128">
+</p>
+
 [![Built with AI](https://img.shields.io/badge/Built%20with-AI-8B5CF6?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/luisotavio-dev/desktop-shortcut-generator)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![PyQt6](https://img.shields.io/badge/PyQt6-6.4+-41CD52?style=flat-square&logo=qt&logoColor=white)](https://www.riverbankcomputing.com/software/pyqt/)
@@ -187,7 +191,6 @@ Contributions are welcome. Feel free to open issues, suggest improvements, or su
 
 - [ ] New language translations
 - [ ] Automated tests
-- [ ] Flatpak / Flathub packaging
 - [ ] UI accessibility improvements
 - [ ] Desktop environment compatibility fixes
 - [ ] Replace or harden AI-generated sections where needed
@@ -200,6 +203,35 @@ Contributions are welcome. Feel free to open issues, suggest improvements, or su
 2. Translate every `msgstr` and update the `Language:` header
 3. Register the locale in `config/settings.py` → `SUPPORTED_LANGUAGES`
 4. Compile: `python scripts/compile_translations.py`
+
+---
+
+## CI/CD (GitHub Actions)
+
+Pushes to `main` trigger [`.github/workflows/release.yml`](.github/workflows/release.yml), which:
+
+1. **Reads `APP_VERSION`** from `desktop_shortcut_generator/config/settings.py`
+2. **Creates a GitHub release** only when the tag `v<APP_VERSION>` does not exist yet
+
+> **Important:** A new release is **not** created on every commit — only when you **bump `APP_VERSION`** (for example from `1.0.0` to `1.0.1`) and push to `main`.
+
+### Publish a new release
+
+```bash
+# 1. Bump the version
+#    desktop_shortcut_generator/config/settings.py  -> APP_VERSION
+#    desktop_shortcut_generator/__init__.py       -> __version__
+
+git add desktop_shortcut_generator/config/settings.py desktop_shortcut_generator/__init__.py
+git commit -m "chore: bump version to 1.0.1"
+git push origin main
+```
+
+GitHub Actions will create the tag and publish the release on GitHub.
+
+### Manual release trigger
+
+You can also run the workflow manually from the GitHub **Actions** tab (`workflow_dispatch`).
 
 ---
 

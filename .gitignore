@@ -51,4 +51,3 @@ desktop.ini
 
 # Flatpak / packaging drafts (when added later)
 .flatpak-builder/
-flatpak-build/

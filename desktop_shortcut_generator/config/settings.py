@@ -5,7 +5,7 @@ from pathlib import Path
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 APP_NAME: str = "Desktop Shortcut Generator"
 APP_VERSION: str = "1.0.0"
-DEFAULT_ICON: str = str(BASE_DIR / "assets" / "icon.png")
+DEFAULT_ICON: str = str(BASE_DIR / "assets" / "app-icon.png")
 
 LOCALES_DIR: Path = BASE_DIR / "i18n" / "locales"
 SUPPORTED_LANGUAGES: dict[str, str] = {

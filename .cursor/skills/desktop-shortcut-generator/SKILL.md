@@ -3,9 +3,8 @@ name: desktop-shortcut-generator
 description: >-
   Develop and maintain the Desktop Shortcut Generator Python/PyQt6 app for
   creating Linux .desktop shortcuts. Use when working on this project,
-  adding features, fixing bugs, extending i18n, preparing Flatpak/Flathub
-  packaging, or modifying Clean Architecture layers (domain, use_cases,
-  infrastructure, presentation).
+  adding features, fixing bugs, extending i18n, or modifying Clean Architecture
+  layers (domain, use_cases, infrastructure, presentation).
 ---
 
 # Desktop Shortcut Generator
@@ -85,12 +84,12 @@ python -m desktop_shortcut_generator.main
 - Python **3.11+**, full **type hints**, **PEP 8**, Google-style **docstrings** on public classes/methods.
 - Validation errors: raise `ValidationError(field, message)` with English message keys translatable in `main_window.py`.
 - File errors: raise `FileWriteError` from infrastructure; show user-friendly message in UI.
-- Config: read `APP_NAME`, `APP_VERSION`, `DEFAULT_ICON` from `config/settings.py` (Flathub-ready).
+- Config: read `APP_NAME`, `APP_VERSION`, `DEFAULT_ICON` from `config/settings.py`.
 
 ## Flatpak considerations
 
 - Keep paths relative to `BASE_DIR` in settings.
-- App icon at `assets/icon.png` (referenced by `DEFAULT_ICON`).
+- App icon at `desktop_shortcut_generator/assets/app-icon.png` (referenced by `DEFAULT_ICON`).
 - No hardcoded user paths outside `Path.home()` for shortcut output.
 - Translations ship as compiled `.mo` files inside the package.
 

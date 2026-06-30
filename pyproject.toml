@@ -1,0 +1,24 @@
+[project]
+name = "desktop-shortcut-generator"
+dynamic = ["version"]
+description = "Create .desktop shortcuts on Linux with a PyQt6 GUI"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "PyQt6>=6.4.0",
+]
+
+[project.scripts]
+desktop-shortcut-generator = "desktop_shortcut_generator.main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = { attr = "desktop_shortcut_generator.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["desktop_shortcut_generator*"]
